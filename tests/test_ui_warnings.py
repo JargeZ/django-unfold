@@ -106,3 +106,37 @@ def test_ui_warnings_with_callback_disabled(admin_client):
     response = admin_client.get("/admin/example/user/1/change/")
     assert response.status_code == HTTPStatus.OK
     assert TESTING_MESSAGE not in response.content.decode()
+
+
+@override_settings(
+    DEBUG=True,
+    UNFOLD={
+        **CONFIG_DEFAULTS,
+        "SHOW_UI_WARNINGS": True,
+    },
+)
+def test_ui_warnings_too_many_actions(admin_client):
+    response = admin_client.get("/admin/example/actionuser/")
+    assert response.status_code == HTTPStatus.OK
+    assert "ActionsUserAdmin.actions_list</strong> contains 8 actions" in (
+        response.content.decode()
+    )
+
+    response = admin_client.get("/admin/example/actionuser/1/change/")
+    assert response.status_code == HTTPStatus.OK
+    assert "ActionsUserAdmin.actions_detail</strong> contains 8 actions" in (
+        response.content.decode()
+    )
+
+
+@override_settings(
+    DEBUG=True,
+    UNFOLD={
+        **CONFIG_DEFAULTS,
+        "SHOW_UI_WARNINGS": True,
+    },
+)
+def test_ui_warnings_few_actions(admin_client):
+    response = admin_client.get("/admin/example/dialogactionuser/")
+    assert response.status_code == HTTPStatus.OK
+    assert "actions_list</strong> contains" not in response.content.decode()

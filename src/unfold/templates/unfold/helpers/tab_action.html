@@ -1,7 +1,7 @@
 {% load unfold %}
 
 <li class="{% action_item_classes action %}" {% if not link and action.items|length > 0 %}x-data="{actionDropdownOpen: false}" x-ref="actionDropdown{{ action.method_name }}"{% endif %}>
-    <a {% if link %}href="{{ link }}"{% endif %}class="cursor-pointer flex grow items-center gap-2 px-3 py-2 text-start whitespace-nowrap" {% if blank %} target="_blank"{% endif %} {% include "unfold/helpers/attrs.html" with attrs=action.attrs %}
+    <a {% if link %}href="{{ link }}"{% endif %}class="cursor-pointer flex grow items-center gap-2 min-w-0 px-3 py-2 text-start whitespace-nowrap" {% if blank %} target="_blank"{% endif %} {% include "unfold/helpers/attrs.html" with attrs=action.attrs %}
        {% if not link %}
            x-on:click="actionDropdownOpen = !actionDropdownOpen"
            x-bind:class="{'{% if action.variant.value == "default" %}text-primary-600 dark:text-primary-500{% endif %}': actionDropdownOpen }"
@@ -14,19 +14,19 @@
            x-on:htmx:after-on-load="openModal = true"
        {% endif %}>
         {% if action.icon %}
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined shrink-0">
                 {{ action.icon }}
             </span>
         {% elif icon %}
-            <span class="material-symbols-outlined {% if icon == "open_in_new" %}rtl:-scale-x-100{% endif %}">
+            <span class="material-symbols-outlined shrink-0 {% if icon == "open_in_new" %}rtl:-scale-x-100{% endif %}">
                 {{ icon }}
             </span>
         {% endif %}
 
-        {{ title }}
+        <span class="truncate" title="{{ title }}">{{ title }}</span>
 
         {% if not link and action.items|length > 0 %}
-            <span class="border-s border-base-200 flex items-center select-none self-stretch ms-auto -me-1 !ms-1 ps-2
+            <span class="border-s border-base-200 flex items-center select-none self-stretch shrink-0 ms-auto -me-1 !ms-1 ps-2
                          {% if action.variant.value == "primary" %}
                              border-primary-700 dark:border-primary-500
                          {% elif action.variant.value == "danger" %}
