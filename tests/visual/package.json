@@ -1,0 +1,16 @@
+{
+  "name": "unfold-visual-tests",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "codeceptjs": "^4.2.1",
+    "pixelmatch": "^8.0.0",
+    "playwright": "^1.64.0",
+    "pngjs": "^7.0.0"
+  },
+  "scripts": {
+    "server": "F=$PWD/fixture.json && cd ${SERVER_DIR:-../server} && uv run python manage.py testserver $F --addrport localhost:${VISUAL_PORT:-8040} --noinput",
+    "test": "codeceptjs run --steps",
+    "baseline": "UPDATE_BASELINE=1 codeceptjs run"
+  }
+}

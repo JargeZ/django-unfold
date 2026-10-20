@@ -1,0 +1,40 @@
+version: "3"
+
+tasks:
+  install:
+    desc: Install npm packages and the Chromium browser
+    cmds:
+      - npm ci
+      - npx playwright install chromium
+
+  server:
+    desc: Run the example server with a clean in-memory database and fixture.json on http://localhost:8040/admin/
+    cmds:
+      - npm run server
+
+  test:
+    desc: Compare screenshots with base images, report in output/visual/report.html
+    cmds:
+      - npm test
+
+  baseline:
+    desc: Save current screenshots as new base images
+    cmds:
+      - npm run baseline
+
+  report:
+    desc: Open the visual report
+    cmds:
+      - open output/visual/report.html
+
+  compare:
+    desc: "Compare screenshots of the current code with the BASE branch (default: main)"
+    vars:
+      BASE: '{{.BASE | default "main"}}'
+    cmds:
+      - git worktree remove --force output/base 2>/dev/null || true
+      - git worktree add --detach output/base {{.BASE}}
+      - defer: git worktree remove --force output/base
+      # Other port, so the test step cannot reuse the base server while it stops
+      - SERVER_DIR=$PWD/output/base/tests/server VISUAL_PORT=8041 npm run baseline
+      - npm test
