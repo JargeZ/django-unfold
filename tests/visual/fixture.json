@@ -1,0 +1,677 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Editors",
+    "permissions": [
+      [
+        "view_project",
+        "example",
+        "project"
+      ],
+      [
+        "change_user",
+        "example",
+        "user"
+      ],
+      [
+        "view_user",
+        "example",
+        "user"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Viewers",
+    "permissions": []
+  }
+},
+{
+  "model": "example.user",
+  "pk": 1,
+  "fields": {
+    "password": "md5$visualtests$618104d38c6f9b0c6fd2fe2a07d8bb83",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Ada",
+    "last_name": "Admin",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-01-15T10:30:00",
+    "url": null,
+    "location": null,
+    "file": "",
+    "image": "",
+    "data": null,
+    "numeric_single": null,
+    "numeric_range": null,
+    "numeric_slider": null,
+    "numeric_slider_custom": null,
+    "numeric_range_custom": null,
+    "profile": null,
+    "content_type": null,
+    "status": "active",
+    "approval": "new",
+    "priority": "medium",
+    "color": "blue",
+    "weight": 0,
+    "groups": [],
+    "user_permissions": [],
+    "tags": [],
+    "categories": [],
+    "labels": [],
+    "projects": [],
+    "tasks": []
+  }
+},
+{
+  "model": "example.user",
+  "pk": 2,
+  "fields": {
+    "password": "md5$visualtests$618104d38c6f9b0c6fd2fe2a07d8bb83",
+    "last_login": "2024-01-15T10:30:00",
+    "is_superuser": false,
+    "username": "alice",
+    "first_name": "Alice",
+    "last_name": "Anderson",
+    "email": "alice@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-01-15T10:30:00",
+    "url": "https://example.com/alice",
+    "location": null,
+    "file": "",
+    "image": "",
+    "data": {
+      "name": "Alice",
+      "age": 30
+    },
+    "numeric_single": 10.0,
+    "numeric_range": 25.0,
+    "numeric_slider": 50.0,
+    "numeric_slider_custom": 5.0,
+    "numeric_range_custom": 75.0,
+    "profile": 1,
+    "content_type": null,
+    "status": "pending",
+    "approval": "reviewed",
+    "priority": "high",
+    "color": "red",
+    "weight": 1,
+    "groups": [
+      [
+        "Editors"
+      ]
+    ],
+    "user_permissions": [],
+    "tags": [
+      1,
+      2,
+      3
+    ],
+    "categories": [
+      1,
+      2
+    ],
+    "labels": [
+      1,
+      2
+    ],
+    "projects": [
+      1,
+      2,
+      3
+    ],
+    "tasks": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "example.user",
+  "pk": 3,
+  "fields": {
+    "password": "md5$visualtests$618104d38c6f9b0c6fd2fe2a07d8bb83",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "bob",
+    "first_name": "Bob",
+    "last_name": "Brown",
+    "email": "bob@example.com",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2024-01-15T10:30:00",
+    "url": null,
+    "location": null,
+    "file": "",
+    "image": "",
+    "data": null,
+    "numeric_single": 90.0,
+    "numeric_range": 80.0,
+    "numeric_slider": null,
+    "numeric_slider_custom": null,
+    "numeric_range_custom": null,
+    "profile": 2,
+    "content_type": null,
+    "status": "inactive",
+    "approval": "rejected",
+    "priority": "low",
+    "color": "green",
+    "weight": 2,
+    "groups": [],
+    "user_permissions": [],
+    "tags": [
+      4,
+      5
+    ],
+    "categories": [
+      3,
+      4
+    ],
+    "labels": [
+      3,
+      4
+    ],
+    "projects": [],
+    "tasks": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "example.user",
+  "pk": 4,
+  "fields": {
+    "password": "md5$visualtests$618104d38c6f9b0c6fd2fe2a07d8bb83",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "carol",
+    "first_name": "Carol",
+    "last_name": "Clark",
+    "email": "carol@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-15T10:30:00",
+    "url": null,
+    "location": null,
+    "file": "",
+    "image": "",
+    "data": null,
+    "numeric_single": null,
+    "numeric_range": null,
+    "numeric_slider": null,
+    "numeric_slider_custom": null,
+    "numeric_range_custom": null,
+    "profile": null,
+    "content_type": null,
+    "status": "active",
+    "approval": "approved",
+    "priority": "medium",
+    "color": "yellow",
+    "weight": 3,
+    "groups": [],
+    "user_permissions": [],
+    "tags": [],
+    "categories": [],
+    "labels": [],
+    "projects": [],
+    "tasks": []
+  }
+},
+{
+  "model": "example.user",
+  "pk": 5,
+  "fields": {
+    "password": "md5$visualtests$618104d38c6f9b0c6fd2fe2a07d8bb83",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_with_a_very_long_username_for_layout_checks",
+    "first_name": "Maximilian-Alexander",
+    "last_name": "Vandenberg-Hohenzollern",
+    "email": "long@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-15T10:30:00",
+    "url": null,
+    "location": null,
+    "file": "",
+    "image": "",
+    "data": null,
+    "numeric_single": null,
+    "numeric_range": null,
+    "numeric_slider": null,
+    "numeric_slider_custom": null,
+    "numeric_range_custom": null,
+    "profile": null,
+    "content_type": null,
+    "status": "active",
+    "approval": "new",
+    "priority": "medium",
+    "color": "blue",
+    "weight": 4,
+    "groups": [],
+    "user_permissions": [],
+    "tags": [],
+    "categories": [],
+    "labels": [],
+    "projects": [],
+    "tasks": []
+  }
+},
+{
+  "model": "example.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Python"
+  }
+},
+{
+  "model": "example.tag",
+  "pk": 2,
+  "fields": {
+    "name": "Django"
+  }
+},
+{
+  "model": "example.tag",
+  "pk": 3,
+  "fields": {
+    "name": "Design"
+  }
+},
+{
+  "model": "example.tag",
+  "pk": 4,
+  "fields": {
+    "name": "Backend"
+  }
+},
+{
+  "model": "example.tag",
+  "pk": 5,
+  "fields": {
+    "name": "Frontend"
+  }
+},
+{
+  "model": "example.category",
+  "pk": 1,
+  "fields": {
+    "name": "Engineering"
+  }
+},
+{
+  "model": "example.category",
+  "pk": 2,
+  "fields": {
+    "name": "Marketing"
+  }
+},
+{
+  "model": "example.category",
+  "pk": 3,
+  "fields": {
+    "name": "Sales"
+  }
+},
+{
+  "model": "example.category",
+  "pk": 4,
+  "fields": {
+    "name": "Category with a very long name that does not fit into one line of the selector"
+  }
+},
+{
+  "model": "example.label",
+  "pk": 1,
+  "fields": {
+    "name": "Urgent"
+  }
+},
+{
+  "model": "example.label",
+  "pk": 2,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "example.label",
+  "pk": 3,
+  "fields": {
+    "name": "Feature"
+  }
+},
+{
+  "model": "example.label",
+  "pk": 4,
+  "fields": {
+    "name": "Documentation"
+  }
+},
+{
+  "model": "example.project",
+  "pk": 1,
+  "fields": {
+    "name": "Project 01",
+    "is_active": true
+  }
+},
+{
+  "model": "example.project",
+  "pk": 2,
+  "fields": {
+    "name": "Project 02",
+    "is_active": true
+  }
+},
+{
+  "model": "example.project",
+  "pk": 3,
+  "fields": {
+    "name": "Project 03",
+    "is_active": false
+  }
+},
+{
+  "model": "example.project",
+  "pk": 4,
+  "fields": {
+    "name": "Project 04",
+    "is_active": true
+  }
+},
+{
+  "model": "example.project",
+  "pk": 5,
+  "fields": {
+    "name": "Project 05",
+    "is_active": true
+  }
+},
+{
+  "model": "example.project",
+  "pk": 6,
+  "fields": {
+    "name": "Project 06",
+    "is_active": false
+  }
+},
+{
+  "model": "example.project",
+  "pk": 7,
+  "fields": {
+    "name": "Project 07",
+    "is_active": true
+  }
+},
+{
+  "model": "example.project",
+  "pk": 8,
+  "fields": {
+    "name": "Project 08",
+    "is_active": true
+  }
+},
+{
+  "model": "example.project",
+  "pk": 9,
+  "fields": {
+    "name": "Project 09",
+    "is_active": false
+  }
+},
+{
+  "model": "example.project",
+  "pk": 10,
+  "fields": {
+    "name": "Project 10",
+    "is_active": true
+  }
+},
+{
+  "model": "example.project",
+  "pk": 11,
+  "fields": {
+    "name": "Project 11",
+    "is_active": true
+  }
+},
+{
+  "model": "example.project",
+  "pk": 12,
+  "fields": {
+    "name": "Project 12",
+    "is_active": false
+  }
+},
+{
+  "model": "example.project",
+  "pk": 13,
+  "fields": {
+    "name": "Project 13",
+    "is_active": true
+  }
+},
+{
+  "model": "example.project",
+  "pk": 14,
+  "fields": {
+    "name": "Project 14",
+    "is_active": true
+  }
+},
+{
+  "model": "example.task",
+  "pk": 1,
+  "fields": {
+    "project": 1,
+    "name": "Write specs"
+  }
+},
+{
+  "model": "example.task",
+  "pk": 2,
+  "fields": {
+    "project": 2,
+    "name": "Build API"
+  }
+},
+{
+  "model": "example.task",
+  "pk": 3,
+  "fields": {
+    "project": 3,
+    "name": "Design UI"
+  }
+},
+{
+  "model": "example.task",
+  "pk": 4,
+  "fields": {
+    "project": 4,
+    "name": "Fix bugs"
+  }
+},
+{
+  "model": "example.task",
+  "pk": 5,
+  "fields": {
+    "project": 1,
+    "name": "Deploy"
+  }
+},
+{
+  "model": "example.task",
+  "pk": 6,
+  "fields": {
+    "project": 2,
+    "name": "Write docs"
+  }
+},
+{
+  "model": "example.post",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "alice"
+    ],
+    "title": "First post",
+    "weight": 0
+  }
+},
+{
+  "model": "example.post",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "alice"
+    ],
+    "title": "Second post",
+    "weight": 1
+  }
+},
+{
+  "model": "example.post",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "alice"
+    ],
+    "title": "Third post",
+    "weight": 2
+  }
+},
+{
+  "model": "example.invoice",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "alice"
+    ],
+    "name": "Invoice 2024-001"
+  }
+},
+{
+  "model": "example.invoice",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "alice"
+    ],
+    "name": "Invoice 2024-002"
+  }
+},
+{
+  "model": "example.invoiceitem",
+  "pk": 1,
+  "fields": {
+    "name": "Consulting",
+    "invoice": 1
+  }
+},
+{
+  "model": "example.invoiceitem",
+  "pk": 2,
+  "fields": {
+    "name": "Hosting",
+    "invoice": 1
+  }
+},
+{
+  "model": "example.profile",
+  "pk": 1,
+  "fields": {
+    "name": "Default profile"
+  }
+},
+{
+  "model": "example.profile",
+  "pk": 2,
+  "fields": {
+    "name": "Advanced profile"
+  }
+},
+{
+  "model": "waffle.flag",
+  "pk": 1,
+  "fields": {
+    "name": "new_dashboard",
+    "everyone": true,
+    "percent": null,
+    "testing": false,
+    "superusers": true,
+    "staff": false,
+    "authenticated": false,
+    "languages": "",
+    "rollout": false,
+    "note": "Enables the new dashboard",
+    "created": "2024-01-15T10:30:00",
+    "modified": "2024-01-15T10:30:00",
+    "groups": [],
+    "users": []
+  }
+},
+{
+  "model": "waffle.flag",
+  "pk": 2,
+  "fields": {
+    "name": "beta_features",
+    "everyone": null,
+    "percent": "25.0",
+    "testing": false,
+    "superusers": true,
+    "staff": false,
+    "authenticated": false,
+    "languages": "",
+    "rollout": false,
+    "note": "",
+    "created": "2024-01-15T10:30:00",
+    "modified": "2024-01-15T10:30:00",
+    "groups": [],
+    "users": []
+  }
+},
+{
+  "model": "waffle.switch",
+  "pk": 1,
+  "fields": {
+    "name": "maintenance",
+    "active": false,
+    "note": "Maintenance mode",
+    "created": "2024-01-15T10:30:00",
+    "modified": "2024-01-15T10:30:00"
+  }
+},
+{
+  "model": "waffle.switch",
+  "pk": 2,
+  "fields": {
+    "name": "signups",
+    "active": true,
+    "note": "",
+    "created": "2024-01-15T10:30:00",
+    "modified": "2024-01-15T10:30:00"
+  }
+},
+{
+  "model": "waffle.sample",
+  "pk": 1,
+  "fields": {
+    "name": "ab_test",
+    "percent": "50.0",
+    "note": "",
+    "created": "2024-01-15T10:30:00",
+    "modified": "2024-01-15T10:30:00"
+  }
+}
+]
