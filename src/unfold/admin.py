@@ -114,6 +114,9 @@ class ModelAdmin(
             list_editable.append(self.ordering_field)
             self.list_editable = list_editable
 
+        if self._show_ui_warnings(request):
+            self._display_actions_warnings(request, "actions_list")
+
         return super().changelist_view(request, extra_context)
 
     @xframe_options_sameorigin
@@ -133,6 +136,9 @@ class ModelAdmin(
 
         if self._show_ui_warnings(request):
             self._display_autocomplete_fields_warnings(request)
+
+            if object_id:
+                self._display_actions_warnings(request, "actions_detail")
 
         return response
 

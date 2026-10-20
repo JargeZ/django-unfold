@@ -24,6 +24,8 @@ from unfold import widgets
 from unfold.overrides import FORMFIELD_OVERRIDES
 from unfold.utils import get_setting_value
 
+ACTIONS_WARNING_THRESHOLD = 5
+
 
 class FormFieldModelAdminMixin(BaseModelAdmin):
     # List of all db fields which are not available in autocomplete_fields
@@ -150,6 +152,24 @@ class FormFieldModelAdminMixin(BaseModelAdmin):
 
             if missing_field in self._autocomplete_fields_missing:
                 self._autocomplete_fields_missing.remove(missing_field)
+
+    def _display_actions_warnings(self, request: HttpRequest, attr: str) -> None:
+        actions = getattr(self, attr, ())
+
+        if len(actions) < ACTIONS_WARNING_THRESHOLD:
+            return
+
+        messages.warning(
+            request,
+            format_html(
+                _(
+                    '<strong class="font-semibold">{admin_name}.{attr}</strong> contains {count} actions. Consider grouping some of them into a dropdown by using `items`.'
+                ),  # ty:ignore[invalid-argument-type]
+                admin_name=self.__class__.__name__,
+                attr=attr,
+                count=len(actions),
+            ),
+        )
 
     def _check_autocomplete_field(  # noqa: PLR0911
         self,

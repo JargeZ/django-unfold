@@ -32,7 +32,7 @@
                                                hx-select="#dialog"
                                                x-on:htmx:after-on-load="openModal = true"
                                            {% endif %}
-                                           class="flex items-center gap-2 mx-1 px-3 py-2 max-h-[30px] rounded-default hover:bg-base-100 dark:hover:bg-base-700 dark:hover:text-base-200"{% for attr_name, attr_value in action.attrs.items %} {{ attr_name }}="{{ attr_value }}"{% endfor %}>
+                                           class="flex items-center gap-2 mx-1 px-3 py-2 max-h-[30px] rounded-default hover:min-w-[calc(100%-0.5rem)] hover:self-end hover:shadow-xs hover:w-max hover:bg-base-100 dark:hover:bg-base-700 dark:hover:text-base-200"{% for attr_name, attr_value in action.attrs.items %} {{ attr_name }}="{{ attr_value }}"{% endfor %}>
                                             {% if action.icon %}
                                                 <span class="material-symbols-outlined">
                                                     {{ action.icon }}

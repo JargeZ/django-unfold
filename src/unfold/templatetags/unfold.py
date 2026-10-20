@@ -503,6 +503,7 @@ def action_item_classes(context: RequestContext, action: dict) -> str:
     classes = [
         "border",
         "border-base-200",
+        "min-w-0",
         "select-none",
         "max-lg:-mt-px",
         "max-lg:first:rounded-t-default",
