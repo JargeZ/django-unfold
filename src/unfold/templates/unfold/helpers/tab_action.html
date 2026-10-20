@@ -58,7 +58,7 @@
                            hx-select="#dialog"
                            x-on:htmx:after-on-load="openModal = true"
                        {% endif %}
-                       class="flex items-center font-normal gap-2 max-h-[30px] mx-1 px-3 py-2 rounded-default text-start hover:bg-base-100 hover:text-base-700 dark:hover:bg-base-700 dark:hover:text-base-200
+                       class="flex items-center font-normal gap-2 max-h-[30px] mx-1 px-3 py-2 rounded-default text-start hover:min-w-[calc(100%-0.5rem)] hover:self-end hover:shadow-xs hover:w-max hover:bg-base-100 hover:text-base-700 dark:hover:bg-base-700 dark:hover:text-base-200
                               {% if item.variant.value == "danger" %}
                                   text-red-700 dark:text-red-400 hover:text-red-700 dark:hover:text-red-400 hover:bg-red-100 dark:hover:bg-red-500/20
                               {% elif item.variant.value == "warning" %}
