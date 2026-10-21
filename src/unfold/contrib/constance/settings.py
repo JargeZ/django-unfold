@@ -49,12 +49,14 @@ UNFOLD_CONSTANCE_ADDITIONAL_FIELDS = {
         "django.forms.fields.FileField",
         {
             "widget": "unfold.widgets.UnfoldAdminFileFieldWidget",
+            "required": False,
         },
     ],
     "image_field": [
         "django.forms.fields.ImageField",
         {
             "widget": "unfold.widgets.UnfoldAdminImageFieldWidget",
+            "required": False,
         },
     ],
 }

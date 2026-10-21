@@ -137,15 +137,6 @@ CONSTANCE_ADDITIONAL_FIELDS = {
             ),
         },
     ],
-    # Empty file settings must not block the form save
-    "file_field": [
-        "django.forms.fields.FileField",
-        {"widget": "unfold.widgets.UnfoldAdminFileFieldWidget", "required": False},
-    ],
-    "image_field": [
-        "django.forms.fields.ImageField",
-        {"widget": "unfold.widgets.UnfoldAdminImageFieldWidget", "required": False},
-    ],
 }
 
 CONSTANCE_CONFIG = {
