@@ -188,12 +188,14 @@ class UserAnotherResource(ModelResource):
     class Meta:
         model = User
         fields = ["username", "last_name"]
+        import_id_fields = ["username"]
 
 
 class UserResource(ModelResource):
     class Meta:
         model = User
         fields = ["username", "first_name"]
+        import_id_fields = ["username"]
 
 
 @admin.register(User)
@@ -290,6 +292,10 @@ class UserAdmin(
     )
 
     def get_custom_urls(self):
+        # Subclasses for other User proxies must not register the same URL name
+        if self.model is not User:
+            return super().get_custom_urls()
+
         return [
             (
                 "crispy-form",
