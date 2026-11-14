@@ -1,6 +1,7 @@
 from http import HTTPStatus
 
 import pytest
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import reverse_lazy
 
 
@@ -244,3 +245,42 @@ def test_dialog_actions_with_permissions_returning_false(admin_client):
     )
     assert response.status_code == HTTPStatus.FORBIDDEN
     assert "HX-Redirect" not in response.headers
+
+
+@pytest.mark.django_db
+def test_dialog_action_with_file_field(admin_client):
+    url = reverse_lazy(
+        "admin:example_dialogactionuser_changelist_dialog_action_with_file_form"
+    )
+
+    # Only a form with a file field is sent as multipart
+    response = admin_client.get(url)
+    assert response.status_code == HTTPStatus.OK
+    assert 'hx-encoding="multipart/form-data"' in response.content.decode()
+
+    response = admin_client.get(
+        reverse_lazy(
+            "admin:example_dialogactionuser_changelist_dialog_action_with_custom_form"
+        )
+    )
+    assert "multipart/form-data" not in response.content.decode()
+
+    response = admin_client.post(url, {"_form_submitted": True})
+    assert response.status_code == HTTPStatus.OK
+    assert "HX-Redirect" not in response.headers
+    assert "This field is required." in response.content.decode()
+
+    response = admin_client.post(
+        url,
+        {
+            "attachment": SimpleUploadedFile("note.txt", b"hello"),
+            "_form_submitted": True,
+        },
+    )
+    assert response.status_code == HTTPStatus.OK
+    assert "HX-Redirect" in response.headers
+
+    response = admin_client.get(
+        reverse_lazy("admin:example_dialogactionuser_changelist"),
+    )
+    assert "Uploaded note.txt: hello" in response.content.decode()

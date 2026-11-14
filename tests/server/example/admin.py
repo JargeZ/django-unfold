@@ -519,11 +519,16 @@ class DialogActionForm(BaseDialogForm):
         return self.cleaned_data["confirm"]
 
 
+class DialogActionFileForm(BaseDialogForm):
+    attachment = forms.FileField()
+
+
 @admin.register(DialogActionUser)
 class DialogActionsUserAdmin(BaseUserAdmin, ModelAdmin):
     actions_list = [
         "changelist_dialog_action_without_custom_form",
         "changelist_dialog_action_with_custom_form",
+        "changelist_dialog_action_with_file_form",
         "changelist_dialog_action_with_permissions_true",
         "changelist_dialog_action_with_permissions_false",
     ]
@@ -634,6 +639,27 @@ class DialogActionsUserAdmin(BaseUserAdmin, ModelAdmin):
 
     def has_changelist_dialog_action_with_permissions_false_permission(self, request):
         return False
+
+    @action(
+        description="Dialog action with file",
+        dialog={
+            "title": "Changelist dialog action with file form",
+            "form_class": DialogActionFileForm,
+        },
+    )
+    def changelist_dialog_action_with_file_form(self, request, form):
+        attachment = form.cleaned_data["attachment"]
+        messages.success(
+            request, f"Uploaded {attachment.name}: {attachment.read().decode()}"
+        )
+
+        return HttpResponse(
+            headers={
+                "HX-Redirect": reverse_lazy(
+                    "admin:example_dialogactionuser_changelist"
+                ),
+            }
+        )
 
     @action(
         description="Dialog action with form",

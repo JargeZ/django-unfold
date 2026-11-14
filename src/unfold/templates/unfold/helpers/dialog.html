@@ -1,7 +1,7 @@
 {% load i18n unfold %}
 
 <div id="dialog">
-    <form method="post" novalidate hx-post="{{ request.build_absolute_uri }}" hx-target="#dialog-form" hx-select="#dialog-form" hx-swap="outerHTML" hx-indicator="#dialog-preloader">
+    <form method="post" novalidate{% if form.is_multipart %} enctype="multipart/form-data" hx-encoding="multipart/form-data"{% endif %} hx-post="{{ request.build_absolute_uri }}" hx-target="#dialog-form" hx-select="#dialog-form" hx-swap="outerHTML" hx-indicator="#dialog-preloader">
         {% csrf_token %}
 
         {{ form.media }}

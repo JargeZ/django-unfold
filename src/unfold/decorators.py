@@ -80,6 +80,7 @@ def action(
                 form_class = dialog.get("form_class") or BaseDialogForm
                 form = form_class(
                     data=request.POST or None,
+                    files=request.FILES or None,
                     request=request,
                     object_id=kwargs.get("object_id"),
                 )
