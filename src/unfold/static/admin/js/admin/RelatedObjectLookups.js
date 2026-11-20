@@ -81,15 +81,12 @@
 
     const siblings = $("body").find('#' + $this.closest(".related-widget-wrapper").data("id")).find(".view-related, .change-related, .delete-related");
 
-    const openRelated = $this.closest(".related-widget-wrapper").find(".open-related");
-    const links = siblings.add(openRelated);
-
-    if (!links.length) {
+    if (!siblings.length) {
       return;
     }
     const value = $this.val();
     if (value) {
-      links.each(function () {
+      siblings.each(function () {
         const elm = $(this);
         elm.attr(
           "href",
@@ -97,11 +94,9 @@
         );
         elm.removeAttr("aria-disabled");
       });
-      openRelated.removeClass("opacity-50 pointer-events-none");
     } else {
-      links.removeAttr("href");
-      links.attr("aria-disabled", true);
-      openRelated.addClass("opacity-50 pointer-events-none");
+      siblings.removeAttr("href");
+      siblings.attr("aria-disabled", true);
     }
   }
 
